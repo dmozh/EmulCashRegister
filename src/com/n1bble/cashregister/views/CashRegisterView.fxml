@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.n1bble.cashregister.CashRegisterViewController">
+   <children>
+      <GridPane alignment="CENTER" layoutX="14.0" layoutY="12.0" prefHeight="664.0" prefWidth="973.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="928.0" minWidth="10.0" prefWidth="517.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="480.0" minWidth="10.0" prefWidth="456.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="326.0" minHeight="10.0" prefHeight="206.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="600.0" minHeight="10.0" prefHeight="458.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ListView fx:id="listProductsView" prefHeight="493.0" prefWidth="845.0" GridPane.rowIndex="1" />
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <Button fx:id="add" mnemonicParsing="false" onAction="#addAction" prefHeight="25.0" prefWidth="134.0" text="Добавить позицию">
+                     <VBox.margin>
+                        <Insets left="200.0" top="10.0" />
+                     </VBox.margin></Button>
+                  <Button fx:id="delete" mnemonicParsing="false" onAction="#deleteAction" prefHeight="25.0" prefWidth="134.0" text="Удалить позицию">
+                     <VBox.margin>
+                        <Insets left="200.0" top="10.0" />
+                     </VBox.margin></Button>
+                  <Button fx:id="modify" mnemonicParsing="false" onAction="#modifyAction" prefHeight="25.0" prefWidth="134.0" text="Изменить позицию">
+                     <VBox.margin>
+                        <Insets left="200.0" top="10.0" />
+                     </VBox.margin></Button>
+               </children>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <padding>
+                  <Insets left="17.0" />
+               </padding>
+            </VBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <VBox prefHeight="206.0" prefWidth="308.0">
+                     <children>
+                        <HBox prefHeight="30.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Способ оплаты">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <ChoiceBox fx:id="payMethChoiceBox" prefHeight="25.0" prefWidth="177.0">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </ChoiceBox>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Адресс">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextArea fx:id="addressArea" prefHeight="100.0" prefWidth="229.0">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </TextArea>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Кассир">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="cashier" prefHeight="30.0" prefWidth="230.0" text="Вася Залупкин">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+               <children>
+                  <VBox prefHeight="206.0" prefWidth="455.0">
+                     <children>
+                        <Label text="Сумма к оплате: ">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="50.0" top="15.0" />
+                           </VBox.margin>
+                        </Label>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label fx:id="voucherSum" text="0.0">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="50.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label text="₽">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="15.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </GridPane>
+      <Button fx:id="send" layoutX="461.0" layoutY="713.0" mnemonicParsing="false" onAction="#sendAction" text="Send" />
+   </children>
+</AnchorPane>
